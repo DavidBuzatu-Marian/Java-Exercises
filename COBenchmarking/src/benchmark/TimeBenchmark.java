@@ -38,4 +38,9 @@ public class TimeBenchmark implements IBenchmark {
     public void cancel() {
         running = false;
     }
+
+    @Override
+    public String getResult() {
+        return null;
+    }
 }

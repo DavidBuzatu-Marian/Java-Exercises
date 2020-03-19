@@ -67,16 +67,15 @@ public class CPUDigitsOfPi implements IBenchmark {
     @Override
     public void warmUp() {
         System.out.println("Warming Up...");
-        for(int i = 0; i < 10; i++) {
+        for(int i = 1; i < 10; i++) {
             run(0);
             clean();
-            System.out.println((10 * i) / 2 + " % warmed");
         }
-        for(int i = 0; i < 10; i++) {
+        for(int i = 1; i < 10; i++) {
             run(1);
             clean();
-            System.out.println(50 + (10 * i) / 2 + " % warmed");
         }
+        System.out.println("Warmed Up!");
     }
 
     private void computePiLeibniz() {
@@ -105,21 +104,12 @@ public class CPUDigitsOfPi implements IBenchmark {
     }
 
 
-    public BigDecimal getPI_1() {
-        return PI_1.multiply(BigDecimal.valueOf(4));
-    }
-
-
-    public BigDecimal getPI_2() {
-        return PI_2;
-    }
-
     @Override
     public void clean() {
         // Simple Pi init
-        PI_1 = new BigDecimal(0);
-        PI_2 = new BigDecimal(0);
-        denominator = new BigInteger("1");
+        PI_1 = BigDecimal.ZERO;
+        PI_2 = BigDecimal.ZERO;
+        denominator = BigInteger.ONE;
 
         // Gauss init
         aN = BigDecimal.ONE;
@@ -131,5 +121,13 @@ public class CPUDigitsOfPi implements IBenchmark {
     @Override
     public void cancel() {
 
+    }
+
+    @Override
+    public String getResult() {
+        if(!PI_1.equals(BigDecimal.valueOf(0))) {
+            return String.valueOf(PI_1.multiply(BigDecimal.valueOf(4)));
+        }
+        return String.valueOf(PI_2);
     }
 }

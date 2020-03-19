@@ -4,7 +4,12 @@
     <list default="true" id="39632964-dc4c-4887-a1b8-ed050fcacf64" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/BinarySearchTree/BST.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BinarySearchTree/BST.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/BinarySearchTree/Node.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/BinarySearchTree/Node.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/BST.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BST.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Node.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Node.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../COBenchmarking/out/production/COBenchmarking/benchmark/cpu/CPUDigitsOfPi.class" beforeDir="false" afterPath="$PROJECT_DIR$/../COBenchmarking/out/production/COBenchmarking/benchmark/cpu/CPUDigitsOfPi.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../COBenchmarking/out/production/COBenchmarking/testbench/TestCPU.class" beforeDir="false" afterPath="$PROJECT_DIR$/../COBenchmarking/out/production/COBenchmarking/testbench/TestCPU.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../COBenchmarking/src/testbench/TestCPU.java" beforeDir="false" afterPath="$PROJECT_DIR$/../COBenchmarking/src/testbench/TestCPU.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +35,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
     <configuration name="BST" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -75,22 +81,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="664" y="109" key="#com.intellij.refactoring.encapsulateFields.EncalpsulateFieldsDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1583233696622" />
-    <state width="904" height="263" key="GridCell.Tab.0.bottom" timestamp="1583763696889">
+    <state width="892" height="246" key="GridCell.Tab.0.bottom" timestamp="1584444342025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="904" height="263" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1583763696889" />
-    <state width="904" height="263" key="GridCell.Tab.0.center" timestamp="1583763696889">
+    <state width="892" height="246" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1584444342025" />
+    <state width="892" height="246" key="GridCell.Tab.0.center" timestamp="1584444342025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="904" height="263" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1583763696889" />
-    <state width="904" height="263" key="GridCell.Tab.0.left" timestamp="1583763696889">
+    <state width="892" height="246" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1584444342025" />
+    <state width="892" height="246" key="GridCell.Tab.0.left" timestamp="1584444342025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="904" height="263" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1583763696889" />
-    <state width="904" height="263" key="GridCell.Tab.0.right" timestamp="1583763696889">
+    <state width="892" height="246" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1584444342025" />
+    <state width="892" height="246" key="GridCell.Tab.0.right" timestamp="1584444342025">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="904" height="263" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1583763696889" />
+    <state width="892" height="246" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1584444342025" />
     <state width="904" height="328" key="GridCell.Tab.1.bottom" timestamp="1583664436080">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

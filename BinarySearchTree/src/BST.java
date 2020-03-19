@@ -9,33 +9,50 @@ public class BST {
     }
 
 
-    public void insert(int k) {
-        Node x, y;
-        Node z = new Node(k);
-        y = null;
-        x = root;
-        while (x != null) {
-            y = x;
-            if (x.key - z.key < 0)
-                x = x.right;
-            else
-                x = x.left;
-        }
-        z.p = y;
-        if (y == null)
-            root = z;
-        else if (y.key - z.key < 0)
-            y.right = z;
-        else
-            y.left = z;
+    public void insert(Node root, int k) {
+        Node newNode = new Node(k);
+        newNode.height = 0;
 
+        Node x = root;
+        Node y = null;
+        while(x != null) {
+
+            y = x;
+            if(k < x.key) {
+                x = x.left;
+            } else {
+                x = x.right;
+            }
+        }
+        if(y == null) {
+            y = newNode;
+            this.root = y;
+        }
+
+        else if(k < y.key) {
+            y.left = newNode;
+        } else {
+            y.right = newNode;
+        }
+//        y.height = Math.max(getHeight(y.left), getHeight(y.right)) + 1;
+//        while(!nodes.isEmpty()) {
+//            Node node = nodes.pop();
+//            node.height = Math.max(getHeight(node.left), getHeight(node.right)) + 1;
+//        }
+    }
+
+    private int getHeight(Node node) {
+        if(node == null) {
+            return 0;
+        }
+        return node.height;
     }
 
     public void inorder(Node node) {
         if (node == null)
             return;
         inorder(node.left);
-        System.out.println(node.key);
+        System.out.print(node.key + " ");
         inorder(node.right);
 
     }
@@ -250,19 +267,19 @@ public class BST {
 
 
     public boolean IsPostOrderArray(int[] array, int start, int end) {
-        if(end - start < 1) {
+        if (end - start < 1) {
             return true;
         }
         int leftSubtree = start;
-        while(array[leftSubtree] < array[end]) {
+        while (array[leftSubtree] < array[end]) {
             leftSubtree++;
         }
 
         int rightSubtree = leftSubtree;
-        while(rightSubtree < end && array[rightSubtree] > array[end]) {
+        while (rightSubtree < end && array[rightSubtree] > array[end]) {
             rightSubtree++;
         }
-        if(rightSubtree < end) {
+        if (rightSubtree < end) {
             return false;
         }
 
@@ -274,21 +291,21 @@ public class BST {
     public static void main(String[] args) {
 
         BST st1 = new BST();
-        st1.insert(8);
-        st1.insert(2);
-        st1.insert(15);
-        st1.insert(1);
-        st1.insert(5);
-        st1.insert(4);
-        st1.insert(7);
-        st1.insert(3);
-        st1.insert(10);
-        st1.insert(20);
-        st1.insert(18);
-        st1.insert(22);
+        int[] numbers = new int[1000000];
+        for(int i = 0; i < 1000000; i++) {
+            numbers[i] = i;
+        }
+
+        System.out.println("Got numbers");
+        long startTime = System.nanoTime();
+        for (int i = 0; i < 1000000; i++) {
+            st1.insert(st1.root, numbers[i]);
+        }
+        long endTime = System.nanoTime();
+        System.out.println((double) (endTime - startTime) / 1000000000);
 
 
-        st1.findSize(st1.root);
+//        st1.findSize(st1.root);
 
 //        st1.inorder(st1.root);
         //System.out.println(st1.height(st1.root));
@@ -300,10 +317,10 @@ public class BST {
 //        st1.PrintPathsWithSum(st1.root, new ArrayList<>(), 65, 0);
 //        st1.PrintLevels(st1.root);
 
-        int[] sortedArr = new int[]{2, 4, 7, 10, 11, 34, 46};
-        int[] postOrder = new int[]{1, 15, 2, 5, 8};
-        Node balanced = st1.CreateBalancedBSTfromSortedArray(sortedArr, 0, sortedArr.length - 1);
-        System.out.println(st1.IsPostOrderArray(postOrder, 0, postOrder.length - 1));
+//        int[] sortedArr = new int[]{2, 4, 7, 10, 11, 34, 46};
+//        int[] postOrder = new int[]{1, 15, 2, 5, 8};
+//        Node balanced = st1.CreateBalancedBSTfromSortedArray(sortedArr, 0, sortedArr.length - 1);
+//        System.out.println(st1.IsPostOrderArray(postOrder, 0, postOrder.length - 1));
     }
 
 }

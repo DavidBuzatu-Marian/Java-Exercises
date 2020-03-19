@@ -21,16 +21,16 @@ public class TestCPU {
             timer.start();
             benchmark.run(0);
 
-            log.writeTime("Finished in ", timer.stop(), timeUnit);
-            log.write(((CPUDigitsOfPi) benchmark).getPI_1());
+            log.writeTime("PI1 -> Finished in ", timer.stop(), timeUnit);
+            log.write(benchmark.getResult());
             benchmark.clean();
         }
         for (int i = 0; i < 20; i++) {
             timer.start();
             benchmark.run(1);
 
-            log.writeTime("Finished in ", timer.stop(), timeUnit);
-            log.write(((CPUDigitsOfPi) benchmark).getPI_2());
+            log.writeTime("PI2 -> Finished in ", timer.stop(), timeUnit);
+            log.write(benchmark.getResult());
             benchmark.clean();
         }
     }

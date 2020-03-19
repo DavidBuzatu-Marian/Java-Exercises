@@ -1,5 +1,5 @@
 class Node {
-    public int key, size;
+    public int key, size, height;
 
     public Node left, right, p;
 
