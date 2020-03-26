@@ -22,14 +22,23 @@ public class TestCPUFixedPoint {
         bench.initialize(size);
         bench.warmUp();
 
-        timer.start();
+        for(int i = 0; i < 10000;i ++) {
+            timer.start();
+//        bench.run(CPUFixedPointMethod.ACCESSIBILITY);
+            bench.run(CPUFixedPointMethod.DYNAMIC);
+//        bench.run(CPUFixedPointMethod.OPERATORS);
+            long time = timer.stop();
+            log.writeTime("Finished in", time, timeUnit);
+            log.write("MOPS = ", (double) (CPUFixedPoint.DYNAMIC_OP * size) / (time * 1E6));
+        }
+//        timer.start();
 //        bench.run(CPUFixedPointMethod.ACCESSIBILITY);
 //        bench.run(CPUFixedPointMethod.DYNAMIC);
-        bench.run(CPUFixedPointMethod.OPERATORS);
-        long time = timer.stop();
-        log.writeTime("Finished in", time, timeUnit);
+//        bench.run(CPUFixedPointMethod.OPERATORS);
+//        long time = timer.stop();
+//        log.writeTime("Finished in", time, timeUnit);
 //        log.write("Result is", bench.getResult());
-        log.write("MOPS = ", (double) (CPUFixedPoint.OPERATOR_OP * size) / (time * 1E6));
+//        log.write("MOPS = ", (double) (CPUFixedPoint.DYNAMIC_OP * size) / (time * 1E6));
         bench.clean();
         log.close();
     }

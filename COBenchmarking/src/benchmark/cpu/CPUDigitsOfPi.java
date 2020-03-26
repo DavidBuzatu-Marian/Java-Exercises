@@ -6,6 +6,7 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.math.RoundingMode;
+import java.util.Random;
 
 public class CPUDigitsOfPi implements IBenchmark {
     // Simple Pi computation
@@ -17,6 +18,7 @@ public class CPUDigitsOfPi implements IBenchmark {
 
     private BigDecimal PI_1 = new BigDecimal(0);
     private BigDecimal PI_2 = new BigDecimal(0);
+    private BigDecimal PI_3 = new BigDecimal(0);
     private BigInteger denominator = new BigInteger("0");
 
     //Gauss
@@ -29,6 +31,11 @@ public class CPUDigitsOfPi implements IBenchmark {
     private final BigDecimal FOUR = BigDecimal.valueOf(4);
     private BigDecimal auxA, auxB;
     private MathContext mc;
+
+    // MonteCarlo
+    private BigDecimal xPos, yPos, nrHits;
+    private MathContext mth = new MathContext(10);
+
 
     //Limits
     private int limitInt;
@@ -59,6 +66,9 @@ public class CPUDigitsOfPi implements IBenchmark {
             case 1:
                 computePiGaussLegendre();
                 break;
+            case 2:
+                computePiMonteCarlo();
+                break;
             default:
                 throw new IllegalArgumentException("Option is invalid. It must be between 0-2");
         }
@@ -67,12 +77,16 @@ public class CPUDigitsOfPi implements IBenchmark {
     @Override
     public void warmUp() {
         System.out.println("Warming Up...");
+//        for(int i = 1; i < 10; i++) {
+//            run(0);
+//            clean();
+//        }
+//        for(int i = 1; i < 10; i++) {
+//            run(1);
+//            clean();
+//        }
         for(int i = 1; i < 10; i++) {
-            run(0);
-            clean();
-        }
-        for(int i = 1; i < 10; i++) {
-            run(1);
+            run(2);
             clean();
         }
         System.out.println("Warmed Up!");
@@ -103,12 +117,33 @@ public class CPUDigitsOfPi implements IBenchmark {
         PI_2 = ((aN.add(bN)).multiply(aN.add(bN))).divide(tN.multiply(FOUR), limitInt, RoundingMode.CEILING);
     }
 
+    private void computePiMonteCarlo() {
+        Random randomNr = new Random(System.currentTimeMillis());
+        nrHits = BigDecimal.valueOf(0);
+        for(int i = 1; i < limitInt; i++) {
+            xPos = BigDecimal.valueOf((randomNr.nextDouble() * 2) - 1.0);
+            yPos = BigDecimal.valueOf((randomNr.nextDouble() * 2) - 1.0);
+
+
+            if(distance(xPos.multiply(xPos), yPos.multiply(yPos))) {
+                nrHits = nrHits.add(BigDecimal.valueOf(1));
+            }
+        }
+        PI_3 = BigDecimal.valueOf(4).multiply(nrHits.divide(BigDecimal.valueOf(limitInt), limitInt, RoundingMode.CEILING ));
+    }
+
+    private boolean distance(BigDecimal xPos2, BigDecimal yPos2) {
+        BigDecimal dist = xPos2.add(yPos2);
+        return dist.sqrt(mth).compareTo(BigDecimal.ONE) <= 0;
+    }
+
 
     @Override
     public void clean() {
         // Simple Pi init
         PI_1 = BigDecimal.ZERO;
         PI_2 = BigDecimal.ZERO;
+        PI_3 = BigDecimal.ZERO;
         denominator = BigInteger.ONE;
 
         // Gauss init
@@ -124,10 +159,16 @@ public class CPUDigitsOfPi implements IBenchmark {
     }
 
     @Override
-    public String getResult() {
-        if(!PI_1.equals(BigDecimal.valueOf(0))) {
-            return String.valueOf(PI_1.multiply(BigDecimal.valueOf(4)));
+    public String getResult(int pi_type) {
+        switch (pi_type) {
+            case 1:
+                return String.valueOf(PI_1.multiply(BigDecimal.valueOf(4)));
+            case 2:
+                return String.valueOf(PI_2);
+            case 3:
+                return String.valueOf(PI_3);
+            default:
+                return "0";
         }
-        return String.valueOf(PI_2);
     }
 }

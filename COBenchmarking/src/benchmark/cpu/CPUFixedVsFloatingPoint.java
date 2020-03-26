@@ -56,10 +56,14 @@ public class CPUFixedVsFloatingPoint implements IBenchmark {
     }
 
     @Override
-    public String getResult() {
-        if(result != 0) {
-            return String.valueOf(result);
+    public String getResult(int type) {
+        switch (type) {
+            case 0:
+                return String.valueOf(result);
+            case 1:
+                return String.valueOf(fResult);
+            default:
+                return "0";
         }
-        return String.valueOf(fResult);
     }
 }

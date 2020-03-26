@@ -26,7 +26,7 @@ public class TestCPUFixedVsFloatingPoint {
 //		bench.run(NumberRepresentation.FLOATING);
 		long time = timer.stop();
 		log.writeTime("Finished in", time, timeUnit);
-		log.write("Result is", bench.getResult());
+		log.write("Result is", bench.getResult(0));
 
 		bench.clean();
 		log.close();
