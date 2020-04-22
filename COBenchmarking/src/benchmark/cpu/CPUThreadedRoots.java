@@ -40,14 +40,15 @@ public class CPUThreadedRoots implements IBenchmark {
 
     @Override
     public void warmUp() {
-        run(2);
+        run(8);
         nrCores = Runtime.getRuntime().availableProcessors();
         System.out.println("Nr. of cores: " + nrCores);
+        clean();
     }
 
     @Override
     public void clean() {
-
+        result = 0;
     }
 
     @Override
