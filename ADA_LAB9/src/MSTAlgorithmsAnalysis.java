@@ -31,7 +31,7 @@ public class MSTAlgorithmsAnalysis {
 		try {
 			double startTime, endTime;
 			startTime=System.nanoTime();
-			g = new UndirectedGraph("gr_sparse_100000.txt");
+			g = new UndirectedGraph("gr_dense_100000.txt");
 			endTime=System.nanoTime();
 			System.out.println("Done in "+(endTime-startTime)/1000000 +"milisec");
 
@@ -44,14 +44,14 @@ public class MSTAlgorithmsAnalysis {
 	
 		IMSTFinder theMSTFinder;
 
-		theMSTFinder = new PrimMSTFinderWithDistArr();
-		doMST(theMSTFinder, g);
-
+//		theMSTFinder = new PrimMSTFinderWithDistArr();
+//		doMST(theMSTFinder, g);
+//
 		theMSTFinder = new PrimMSTFinderWithPriorityQueue();
 		doMST(theMSTFinder, g);
 //
-//		theMSTFinder = new KruskalMSTFinder();
-//		doMST(theMSTFinder, g);
+		theMSTFinder = new KruskalMST();
+		doMST(theMSTFinder, g);
 	}
 
 }
