@@ -16,7 +16,7 @@ public class MSTAlgorithmsAnalysis {
 			double minTotalWeight = 0;
 			for (Edge e : result) {
 				minTotalWeight = minTotalWeight + e.weight();
-				//System.out.println(e.toString());
+				System.out.println(e.toString());
 			}
 
 			System.out.println("Min total weight is " + minTotalWeight);
@@ -31,7 +31,7 @@ public class MSTAlgorithmsAnalysis {
 		try {
 			double startTime, endTime;
 			startTime=System.nanoTime();
-			g = new UndirectedGraph("gr_dense_100000.txt");
+			g = new UndirectedGraph("gr_sparse_10.txt");
 			endTime=System.nanoTime();
 			System.out.println("Done in "+(endTime-startTime)/1000000 +"milisec");
 

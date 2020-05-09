@@ -29,10 +29,8 @@ public class PrimMSTFinderWithPriorityQueue implements IMSTFinder {
 		doPrim(g, root);
 
 		for(int v = 0; v < N; ++v) {
-			if(parent[v] != null) {
 				result.add(parent[v]);
 			}
-		}
 
 		return result;
 	}

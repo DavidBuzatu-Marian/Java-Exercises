@@ -26,4 +26,22 @@ public enum TimeUnit {
         }
         return sb.toString();
     }
+
+    public static double convertTimeDouble(long value, TimeUnit unit) {
+        double time = 0;
+        switch (unit) {
+            case SEC:
+                time = value / Math.pow(10, 9);
+                break;
+            case MS:
+                time = value / Math.pow(10, 6);
+                break;
+            case MICROS:
+                time = value / Math.pow(10, 3);
+                break;
+            default:
+                time = value;
+        }
+        return time;
+    }
 }
