@@ -15,9 +15,9 @@ public class TestHDDRandom {
         ILogger log = new ConsoleLogger();
         TimeUnit timeUnit = TimeUnit.SEC;
         IBenchmark bench = new HDDRandomAccess();
-        long fileSize = 1000000000;
+        long fileSize = 500000000;
         bench.initialize(fileSize);
-        bench.run("r", "ft", 1024 * 1024);
+        bench.run("w", "ft", 1024 * 1024);
         log.write(bench.getResult(0) );
     }
 }
