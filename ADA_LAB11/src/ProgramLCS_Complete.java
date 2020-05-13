@@ -40,7 +40,7 @@ public class ProgramLCS_Complete {
 		
 		doForPairOfStrings(solver, medium1, medium2);
 		
-		doForPairOfStrings(solver, long1, long2); // this is going to be very slow with the recursive  solution !
+		doForPairOfStrings(solver, long1, long2);
 	}
 
 }
