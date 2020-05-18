@@ -17,7 +17,7 @@ public class TestHDDRandom {
         IBenchmark bench = new HDDRandomAccess();
         long fileSize = 500000000;
         bench.initialize(fileSize);
-        bench.run("w", "ft", 1024 * 1024);
+        bench.run("r", "ft", 4 * 1024);
         log.write(bench.getResult(0) );
     }
 }
