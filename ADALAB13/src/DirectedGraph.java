@@ -12,6 +12,7 @@ public class DirectedGraph implements Graph {
         }
         this.nrVertices = nrVertices;
     }
+
     @Override
     public void addEdge(int s, int e) {
         adjList.get(s).add(e);

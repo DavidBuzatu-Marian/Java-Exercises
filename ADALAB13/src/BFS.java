@@ -45,4 +45,39 @@ public class BFS {
             System.out.println(endIndex);
         }
     }
+
+    public static void bfs(int startIndex, StairGraph graph) {
+        PriorityQueue<Integer> priorityQueue = new PriorityQueue<>();
+        boolean[] visited = new boolean[graph.getNrVertices()];
+        parent = new Integer[graph.getNrVertices()];
+
+
+        priorityQueue.add(startIndex);
+        visited[startIndex] = true;
+        parent[startIndex] = null;
+
+        while(!priorityQueue.isEmpty()) {
+            int curNode = priorityQueue.remove();
+
+            for(String neigh: graph.getAdjList().get(curNode)) {
+                int i = graph.getIndex(neigh);
+                if(!visited[i]) {
+                    parent[i] = curNode;
+                    visited[i] = true;
+                    priorityQueue.add(i);
+                }
+            }
+        }
+    }
+
+    public static void printPath(int startIndex, int endIndex, StairGraph graph) {
+        if(startIndex == endIndex) {
+            System.out.println(graph.getVertex(startIndex));
+        } else if(parent[endIndex] == null) {
+            System.out.println("No path from " + graph.getVertex(startIndex) + " to " + graph.getVertex(endIndex));
+        } else {
+            printPath(startIndex, parent[endIndex], graph);
+            System.out.println(graph.getVertex(endIndex));
+        }
+    }
 }
